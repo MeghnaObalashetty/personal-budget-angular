@@ -94,9 +94,9 @@
                 </div>
 
                 <div class="text-box">
-                    <h1>Chart</h1>
+                    <h1>My Chart</h1>
                     <p>
-                        <canvas id="myChart" width="400" height="400"></canvas>
+                        <canvas id="myChart2" width="400" height="400"></canvas>
                     </p>
                 </div>
 
@@ -121,31 +121,56 @@
                     '#ff6384',
                     '#36a2eb',
                     '#fd6b19',
+                    '#33FFFF',
+                    '#A033FF',
+                    '#33FF6F',
+                    '#FF5733'
                 ]
             }],
             labels: []
         };
+        /*
+                function createChart() {
+                    var ctx = document.getElementById('myChart').getContext('2d');
+                    var myPieChart = new Chart(ctx, {
+                        type: 'pie',
+                        data: dataSource
+                    });
+                }
 
-        function createChart() {
-            var ctx = document.getElementById('myChart').getContext('2d');
-            var myPieChart = new Chart(ctx, {
+                function getBudget() {
+                    axios.get('http://localhost:3002/budget1')
+                        .then(function(res) {
+                            for (var i = 0; i < res.data.myBudget.length; i++) {
+                                dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
+                                dataSource.labels[i] = res.data.myBudget[i].title;
+                            }
+                            createChart();
+                        });
+                }
+
+                getBudget();
+        */
+        /*Loading data from JSON file*/
+        function createChart2() {
+            var ctx = document.getElementById('myChart2').getContext('2d');
+            var myPieChart1 = new Chart(ctx, {
                 type: 'pie',
                 data: dataSource
             });
         }
 
-        function getBudget() {
-            axios.get('http://localhost:3000/budget')
+        function getBudget2() {
+            axios.get('http://localhost:3002/budget')
                 .then(function(res) {
-                    for (var i = 0; i < res.data.myBudget.length; i++) {
-                        dataSource.datasets[0].data[i] = res.data.myBudget[i].budget;
-                        dataSource.labels[i] = res.data.myBudget[i].title;
+                    for (var i = 0; i < res.data.myBudgetnew.length; i++) {
+                        dataSource.datasets[0].data[i] = res.data.myBudgetnew[i].budget;
+                        dataSource.labels[i] = res.data.myBudgetnew[i].title;
                     }
-                    createChart();
+                    createChart2();
                 });
         }
-
-        getBudget();
+        getBudget2();
     </script>
 
 </body>
