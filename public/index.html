@@ -194,8 +194,26 @@
         };
 
         var color = d3.scale.ordinal()
-            .domain(["Eat out", "Rent", "Grocery", "Entertainment", "Misc", "Transport", "Education", "Health"])
             .range(["#98abc5", "#8a89a6", "#7b6888", "#6b486b", "#a05d56", "#d0743c", "#ff8c00", "#ff5733"]);
+        // Load data from JSON file
+        function getdata() {
+            axios.get('http://localhost:3002/budget')
+                .then(function(res) {
+                    var data = res.data.myBudgetnew.map(function(item) {
+                        return {
+                            label: item.title,
+                            value: item.budget
+                        };
+                    });
+
+                    change(data);
+                })
+                .catch(function(error) {
+                    console.error('Error fetching data:', error);
+                });
+        }
+
+        getdata();
 
         function randomData() {
             var labels = color.domain();
@@ -205,14 +223,6 @@
                     value: Math.random()
                 }
             });
-            axios.get('http://localhost:3002/budget')
-                .then(function(res) {
-                    for (var i = 0; i < res.data.myBudgetnew.length; i++) {
-                        dataSource.datasets[0].data[i] = res.data.myBudgetnew[i].budget;
-                        dataSource.labels[i] = res.data.myBudgetnew[i].title;
-                    }
-                    createChart2();
-                });
         }
 
         change(randomData());
