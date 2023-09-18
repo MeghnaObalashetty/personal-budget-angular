@@ -1,1 +1,12 @@
-{ "myBudgetnew": [{ "title": "Eat out", "budget": 150 }, { "title": "Rent", "budget": 800 }, { "title": "Grocery", "budget": 200 }, { "title": "entertainment", "budget": 300 }, { "title": "Misc", "budget": 100 }, { "title": "Transport", "budget": 150 }, { "title": "Education", "budget": 1000 }, { "title": "Health and Fitness", "budget": 100 }] }
+{
+    "myBudgetnew": [
+        { "title": "Eat out", "budget": 150 },
+        { "title": "Rent", "budget": 800 },
+        { "title": "Grocery", "budget": 200 },
+        { "title": "entertainment", "budget": 300 },
+        { "title": "Misc", "budget": 100 },
+        { "title": "Transport", "budget": 150 },
+        { "title": "Education", "budget": 1000 },
+        { "title": "Health and Fitness", "budget": 100 }
+    ]
+}
