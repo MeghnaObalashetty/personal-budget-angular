@@ -1,7 +1,9 @@
 const express = require('express');
 const app = express();
 const port = 3002;
+const cors = require('cors');
 const fs = require('fs');
+app.use(cors());
 const budget1 = {
     myBudget: [{
             title: 'Eat out',
@@ -35,11 +37,11 @@ app.get('/budget', (req, res) => {
     }
 });
 
-app.use('/', express.static('public'));
+//app.use('/', express.static('public'));
 
-app.get('/hello', (req, res) => {
+/*app.get('/hello', (req, res) => {
     res.send('Hello world');
-});
+});*/
 app.get('/budget1', (req, res) => {
     res.json(budget1);
 });
